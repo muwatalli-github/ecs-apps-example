@@ -24,6 +24,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: podinfo-helm
-        service.type: NodePort
-        service.nodePort: 31198	
+      values:
+        service:
+          type: NodePort
+          nodePort: 31198
   interval: 1m0s
