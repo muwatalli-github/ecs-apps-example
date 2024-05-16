@@ -38,5 +38,5 @@ spec:
     namespace: goldpinger
     service:
       type: NodePort
-      nodePort: 32066
+      port: 32066
       
