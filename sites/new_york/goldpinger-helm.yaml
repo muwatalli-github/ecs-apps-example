@@ -15,33 +15,6 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: goldpinger
-  namespace: goldpinger
-spec:
-  interval: 10m
-  timeout: 5m
-  chart:
-    spec:
-      chart: goldpinger
-      sourceRef:
-        kind: HelmRepository
-        name: okgolove
-      interval: 5m
-  releaseName: goldpinger
-  install:
-    remediation:
-      retries: 3
-  upgrade:
-    remediation:
-      retries: 3
-  values:
-    namespace: goldpinger
-    service:
-      type: NodePort
-      NodePort: ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
-kind: HelmRelease
-metadata:
   name: okgolove
   namespace: goldpinger
 spec:
