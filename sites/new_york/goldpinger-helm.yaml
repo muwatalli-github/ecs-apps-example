@@ -25,7 +25,7 @@ spec:
       chart: goldpinger
       sourceRef:
         kind: HelmRepository
-        name: okgolove/goldpinger
+        name: okgolove
       interval: 5m
   releaseName: goldpinger
   install:
