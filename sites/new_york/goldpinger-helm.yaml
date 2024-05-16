@@ -11,6 +11,7 @@ metadata:
 spec:
   interval: 1m0s
   url: https://okgolove.github.io/helm-charts/
+
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -25,7 +26,7 @@ spec:
       chart: goldpinger
       sourceRef:
         kind: HelmRepository
-        name: goldpinger
+        name: okgolove
       interval: 5m
   releaseName: goldpinger
   install:
@@ -38,4 +39,32 @@ spec:
     namespace: goldpinger
     service:
       type: NodePort
+      NodePort: ---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: okgolove
+  namespace: goldpinger
+spec:
+  interval: 10m
+  timeout: 5m
+  chart:
+    spec:
+      chart: goldpinger
+      sourceRef:
+        kind: HelmRepository
+        name: okgolove/goldpinger
+      interval: 5m
+  releaseName: goldpinger
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    namespace: goldpinger
+    service:
+      type: NodePort
+      NodePort: 32066
       
