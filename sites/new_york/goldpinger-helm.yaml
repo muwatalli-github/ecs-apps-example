@@ -6,7 +6,7 @@ metadata:
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: goldpinger
+  name: okgolove
   namespace: goldpinger
 spec:
   interval: 1m0s
@@ -23,7 +23,6 @@ spec:
   chart:
     spec:
       chart: goldpinger
-      version: '6.5.*'
       sourceRef:
         kind: HelmRepository
         name: goldpinger
